@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <h1>{{ play_info.title }}</h1>
+    <p class="subtitle">{{ play_info.subtitle }}</p>
+    <p class="author">{{ play_info.author }}</p>
+</section>
+
+<section class="acts-grid">
+    {% for act in acts %}
+    <div class="act-card" onclick="location.href='/act/{{ loop.index }}'">
+        <h2>ACT {{ loop.index }}</h2>
+        <h3>{{ act[lang].title }}</h3>
+        <p class="scene-count">{{ act.scenes|length }} {{ nav_text.scene }}s · {{ act[lang].subtitle }}</p>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}
