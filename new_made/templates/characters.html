@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="characters-container">
+    <h1 style="text-align: center; font-family: 'Noto Serif SC', serif; color: #f5cb89; margin-bottom: 30px;">
+        {% if lang == 'zh' %}剧中人物{% else %}Dramatis Personae{% endif %}
+    </h1>
+    
+    <div class="characters-grid">
+        {% for name, desc in characters.items() %}
+        <div class="character-card">
+            <h3>{{ name }}</h3>
+            <p>{{ desc }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
